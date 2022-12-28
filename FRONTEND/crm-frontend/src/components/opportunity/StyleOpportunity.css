@@ -1,0 +1,157 @@
+table.paleBlueRows {
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid #FFFFFF;
+  width: 70%;
+  height: 15em;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.paleBlueRows td, table.paleBlueRows th {
+  border: 1px solid #FFFFFF;
+  padding: 3px 2px;
+}
+table.paleBlueRows tbody td {
+  font-size: 20px;
+}
+table.paleBlueRows tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.paleBlueRows thead {
+  background: #0B6FA4;
+  border-bottom: 5px solid #FFFFFF;
+}
+table.paleBlueRows thead th {
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #FFFFFF;
+}
+table.paleBlueRows thead th:first-child {
+  border-left: none;
+}
+
+table.paleBlueRows tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333333;
+  background: #D0E4F5;
+  border-top: 3px solid #444444;
+}
+table.paleBlueRows tfoot td {
+  font-size: 14px;
+}
+
+table.paleBlueRows tfoot td {
+  font-size: 14px;
+}
+table.paleBlueRows tfoot .links {
+  text-align: right;
+}
+table.paleBlueRows tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+table.paleBlueRows tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+
+
+
+h1{
+  text-align:center;
+  font-family:Helvetica;
+  color:#0517CD;
+  background-color:#F3EFF1;
+} 
+
+.opportunity {
+  display: flex;
+  justify-content: center;
+}
+
+.myButtonCancel {
+	box-shadow:inset 0px 1px 0px 0px #cf866c;
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	background-color:#d0451b;
+	border-radius:3px;
+	border:1px solid #942911;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+}
+.myButtonCancel:hover {
+	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	background-color:#bc3315;
+}
+.myButtonCancel:active {
+	position:relative;
+	top:1px;
+}
+
+
+.myButtonUpdate {
+	box-shadow:inset 0px 1px 0px 0px #a7cf6c;
+	background:linear-gradient(to bottom, #8ed01b 5%, #4dbc15 100%);
+	background-color:#79d01b;
+	border-radius:3px;
+	border:1px solid #609411;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #628529;
+}
+.myButtonUpdate:hover {
+	background:linear-gradient(to bottom, #2bbc15 5%, #79d01b 100%);
+	background-color:#15bc2e;
+}
+.myButtonUpdate:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+.myButtonContacts {
+	box-shadow:inset 0px 1px 0px 0px #c5a920;
+	background:linear-gradient(to bottom, #7f850f 5%, #7d7623 100%);
+	background-color:#6b6608;
+	border-radius:3px;
+	border:1px solid #998c1d;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #686808;
+}
+.myButtonContacts:hover {
+	background:linear-gradient(to bottom, #797b04 5%, #797917 100%);
+	background-color:#8b8911;
+}
+.myButtonContacts:active {
+	position:relative;
+	top:1px;
+}
