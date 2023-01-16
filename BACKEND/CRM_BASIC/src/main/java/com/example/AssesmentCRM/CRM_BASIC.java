@@ -31,5 +31,5 @@ public class AssesmentCrmApplication implements CommandLineRunner {
 		opportunityRepository.save(opportunity_entity);
 */
 
-    }
+}
 }

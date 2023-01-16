@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
-import StyleOpportunity from "./StyleOpportunity.css"
-import {Navigate, useNavigate} from 'react-router-dom'
+import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 import Axios from 'axios'
+import '../general/StyleComponent.css'
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 
 
@@ -16,7 +20,8 @@ function CreateOpportunity(){
         idOpportunity: null,
         opportunityName:'',
         opportunityPhone:'',
-        opportunityEmail:''
+        opportunityEmail:'',
+        idCustomer:''
     })
 
   
@@ -25,11 +30,12 @@ function submit(e){
     Axios.post('http://localhost:8085/opportunity', {
         opportunityName: opportunityBody.opportunityName,
         opportunityPhone: opportunityBody.opportunityPhone,
-        opportunityEmail: opportunityBody.opportunityEmail
+        opportunityEmail: opportunityBody.opportunityEmail,
+        idCustomer: opportunityBody.idCustomer
     })
     .then(res => {
         window.location.href='http://localhost:3000/home'})
-    }
+}
         
         
 
@@ -40,27 +46,35 @@ function handle(e) {
 }
 
     return (
-        <div class="form">
-            <h1>OPPORTUNITY</h1>
-            <div class="opportunity">    
-                <form onSubmit={(e) => submit(e)}>
-                    
-                        <input id="idOpportunity" type="hidden"/> 
-                        <br/>
-                        <input id="opportunityName" type="text" placeholder="Name" value={opportunityBody.opportunityName} onChange={e => handle(e)}/> 
-                        <br/>
-                        <input id="opportunityPhone" type="tel" placeholder="Phone" value={opportunityBody.opportunityPhone} onChange={e => handle(e)}/> 
-                        <br/>
-                        <input id="opportunityEmail" type="email" placeholder="Email" value={opportunityBody.opportunityEmail} onChange={e => handle(e)}/> 
-                        <br/>    
-                        <input type="submit" class="myButtonCreate" value="Create Opportunity" />
-                        <br/>    
-                        <button class="myButtonCancel" onClick={home}>Cancel</button>
-        
-                </form> 
-            </div>
-        </div>
+        <div className="form">
+            <Card sx={{ minWidth: 275,
+                        maxWidth: 450,
+                        margin: "auto" }}>
+                <CardContent>
+            <h1>CREATE OPPORTUNITY</h1>
 
+                    <form onSubmit={(e) => submit(e)}>
+                        
+                            <TextField id="idOpportunity" label="idOpportunity" variant="standard" type="hidden" />
+                            <br/>
+                            <TextField id="opportunityName" label="Name" variant="standard" type="text" value={opportunityBody.opportunityName} onChange={e => handle(e)}/> 
+                            <br/>
+                            <TextField id="opportunityPhone" label="Phone" variant="standard" type="tel" value={opportunityBody.opportunityPhone} onChange={e => handle(e)}/> 
+                            <br/>
+                            <TextField id="opportunityEmail" label="Email" variant="standard" type="email" value={opportunityBody.opportunityEmail} onChange={e => handle(e)}/> 
+                            <br/>    
+                            <TextField id="idCustomer" type="number" label="ID Customer" variant="standard" value={opportunityBody.idCustomer} onChange={e => handle(e)}/> 
+                            <br/>   
+                            <Button variant="contained" color="info" type="submit"> CREATE OPPORTUNITY </Button>
+                            <br/>    
+                            <Button variant="contained"  color="error" type="button" onClick={home}> CANCELAR </Button>
+                            <br/>
+            
+                    </form> 
+                
+                </CardContent> 
+            </Card>
+        </div>
     )
 
 }
