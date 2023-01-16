@@ -1,54 +1,52 @@
 package com.example.AssesmentCRM.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity
-@Table(name = "contact")
-public class ContactEntity {
+public class ContactEntityDTO {
 
     /*
     VARIABLES
     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_contact")
     private long idContact;
-    @Column(name = "contact_date")
     private LocalDateTime contactDate;
-    @Column(name = "contact_description", length = 200)
     private String contactDescription;
+    private Long idOpportunity;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "contact_id_opportunity")
-    private OpportunityEntity opportunity_entity;
 
 
     /*
     CONSTRUCTOR
     */
-    /*
-    NO ARGUMENTS
-    */
-    public ContactEntity() {
-    }
+        /*
+        NO ARGUMENTS
+        */
+        public ContactEntityDTO() {
+        }
 
-    /*
-    ALL ARGUMENTS
-    */
-    public ContactEntity(long idContact, LocalDateTime contactDate, String contactDescription, OpportunityEntity opportunity_entity) {
-        this.idContact = idContact;
-        this.contactDate = contactDate;
-        this.contactDescription = contactDescription;
-        this.opportunity_entity = opportunity_entity;
-    }
-
-    /*
+        /*
+        ALL ARGUMENTS
+        */
+        public ContactEntityDTO(long idContact, LocalDateTime contactDate, String contactDescription,
+                Long idOpportunity) {
+            this.idContact = idContact;
+            this.contactDate = contactDate;
+            this.contactDescription = contactDescription;
+            this.idOpportunity = idOpportunity;
+        }
+/*
     GETTERS AND SETTERS
     */
+
     public long getIdContact() {
         return idContact;
     }
@@ -73,19 +71,24 @@ public class ContactEntity {
         this.contactDescription = contactDescription;
     }
 
-    public OpportunityEntity getOpportunity_entity() {
-        return opportunity_entity;
+    public Long getIdOpportunity() {
+        return idOpportunity;
     }
 
-    public void setOpportunity_entity(OpportunityEntity opportunity_entity) {
-        this.opportunity_entity = opportunity_entity;
+    public void setIdOpportunity(Long idOpportunity) {
+        this.idOpportunity = idOpportunity;
     }
-
-    /*
+/*
     TO STRING
     */
+
     @Override
     public String toString() {
-        return "ContactEntity{" + "idContact=" + idContact + ", contactDate=" + contactDate + ", contactDescription='" + contactDescription + '\'' + ", opportunity_entity=" + opportunity_entity + '}';
+        return "ContactEntityDTO{" +
+                "idContact=" + idContact +
+                ", contactDate=" + contactDate +
+                ", contactDescription='" + contactDescription + '\'' +
+                ", idOpportunity=" + idOpportunity +
+                '}';
     }
 }

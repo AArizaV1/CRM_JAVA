@@ -23,15 +23,13 @@ public class OpportunityEntity {
     @Column(name = "opportunity_email", length = 45)
     private String opportunityEmail;
 
-    @Column(name = "visible", nullable = false)
-    private int visible;
 
     @OneToMany(mappedBy = "opportunity_entity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContactEntity> contacts;
 
     @JsonIgnore
     @ManyToOne()
-    @JoinColumn(name = "opportunity_id_customer")
+    @JoinColumn(name = "opportunity_id_customer", nullable = true)
     private CustomerEntity customer_entity;
 
 
@@ -48,19 +46,46 @@ public class OpportunityEntity {
         ALL ARGUMENTS
         */
 
+    public OpportunityEntity(long idOpportunity, String opportunityName, String opportunityPhone,
+            String opportunityEmail, CustomerEntity customer_entity) {
+        this.idOpportunity = idOpportunity;
+        this.opportunityName = opportunityName;
+        this.opportunityPhone = opportunityPhone;
+        this.opportunityEmail = opportunityEmail;
+        this.customer_entity = customer_entity;
+    }
+
     public OpportunityEntity(long idOpportunity, String opportunityName, String opportunityPhone, String opportunityEmail, List<ContactEntity> contacts, CustomerEntity customer_entity) {
         this.idOpportunity = idOpportunity;
         this.opportunityName = opportunityName;
         this.opportunityPhone = opportunityPhone;
         this.opportunityEmail = opportunityEmail;
-        this.visible = 1;
         this.contacts = contacts;
         this.customer_entity = customer_entity;
     }
 
+    public OpportunityEntity(long idOpportunity, String opportunityName, String opportunityPhone, String opportunityEmail) {
+        this.idOpportunity = idOpportunity;
+        this.opportunityName = opportunityName;
+        this.opportunityPhone = opportunityPhone;
+        this.opportunityEmail = opportunityEmail;
+    }
+
+    public OpportunityEntity(String opportunityName, String opportunityPhone, String opportunityEmail, CustomerEntity customer_entity) {
+        this.opportunityName = opportunityName;
+        this.opportunityPhone = opportunityPhone;
+        this.opportunityEmail = opportunityEmail;
+        this.customer_entity = customer_entity;
+    }
+
+    public OpportunityEntity(long idOpportunity, String opportunityName, String opportunityPhone,
+            String opportunityEmail, OpportunityEntity opportunityEntity) {
+
+    }
+
     /*
-            GETTERS AND SETTERS
-            */
+                GETTERS AND SETTERS
+                */
     public long getIdOpportunity() {
         return idOpportunity;
     }
@@ -93,14 +118,6 @@ public class OpportunityEntity {
         this.opportunityEmail = opportunityEmail;
     }
 
-    public int getVisible() {
-        return visible;
-    }
-
-    public void setVisible(int visible) {
-        this.visible = visible;
-    }
-
     public List<ContactEntity> getContacts() {
         return contacts;
     }
@@ -122,6 +139,6 @@ public class OpportunityEntity {
     */
     @Override
     public String toString() {
-        return "OpportunityEntity{" + "idOpportunity=" + idOpportunity + ", opportunityName='" + opportunityName + '\'' + ", opportunityPhone='" + opportunityPhone + '\'' + ", opportunityEmail='" + opportunityEmail + '\'' + ", visible=" + visible + ", contacts=" + contacts + ", customer_entity=" + customer_entity + '}';
+        return "";
     }
 }

@@ -7,36 +7,31 @@ public class OpportunityEntityDTO {
     private String opportunityName;
     private String opportunityPhone;
     private String opportunityEmail;
-    private List<ContactEntity> contacts;
-    private String customer_entity;
+    private Long idCustomer;
+
 
     public OpportunityEntityDTO(long idOpportunity, String opportunityName, String opportunityPhone,
-            String opportunityEmail, List<ContactEntity> contacts,
-            String customer_entity) {
+            String opportunityEmail, Long idCustomer) {
         this.idOpportunity = idOpportunity;
         this.opportunityName = opportunityName;
         this.opportunityPhone = opportunityPhone;
         this.opportunityEmail = opportunityEmail;
-        this.contacts = contacts;
-        this.customer_entity = customer_entity;
+        this.idCustomer = idCustomer;
     }
 
     public OpportunityEntityDTO(long idOpportunity, String opportunityName, String opportunityPhone,
-            String opportunityEmail, List<ContactEntity> contacts) {
+            String opportunityEmail) {
         this.idOpportunity = idOpportunity;
         this.opportunityName = opportunityName;
         this.opportunityPhone = opportunityPhone;
         this.opportunityEmail = opportunityEmail;
-        this.contacts = contacts;
     }
 
-    public OpportunityEntityDTO(String opportunityName, String opportunityPhone, String opportunityEmail,
-            String customer_entity) {
-        this.opportunityName = opportunityName;
-        this.opportunityPhone = opportunityPhone;
-        this.opportunityEmail = opportunityEmail;
-        this.customer_entity = customer_entity;
+    public OpportunityEntityDTO() {
+
     }
+
+
 
     public long getIdOpportunity() {
         return idOpportunity;
@@ -70,19 +65,22 @@ public class OpportunityEntityDTO {
         this.opportunityEmail = opportunityEmail;
     }
 
-    public List<ContactEntity> getContacts() {
-        return contacts;
+    public Long getIdCustomer() {
+        return idCustomer;
     }
 
-    public void setContacts(List<ContactEntity> contacts) {
-        this.contacts = contacts;
+    public void setIdCustomer(Long idCustomer) {
+        this.idCustomer = idCustomer;
     }
 
-    public String getCustomer_entity() {
-        return customer_entity;
-    }
-
-    public void setCustomer_entity(String customer_entity) {
-        this.customer_entity = customer_entity;
+    @Override
+    public String toString() {
+        return "OpportunityEntityDTO{" +
+                "idOpportunity=" + idOpportunity +
+                ", opportunityName='" + opportunityName + '\'' +
+                ", opportunityPhone='" + opportunityPhone + '\'' +
+                ", opportunityEmail='" + opportunityEmail + '\'' +
+                ", idCustomer=" + idCustomer +
+                '}';
     }
 }

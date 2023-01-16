@@ -31,7 +31,7 @@ public class CustomerController {
     /*
     GET CUSTOMER BY ID METHOD
     */
-    @GetMapping("{id_customer}")
+    @GetMapping("/{id_customer}")
     public ResponseEntity<CustomerEntity> getCustomerById(@PathVariable long id_customer) {
         return customerService.getCustomerById(id_customer);
     }
@@ -39,7 +39,7 @@ public class CustomerController {
     /*
     UPDATE USER BY ID METHOD
     */
-    @PutMapping("{id_customer}")
+    @PutMapping("/{id_customer}")
     public ResponseEntity<CustomerEntity> updateCustomer(@PathVariable long id_customer, @RequestBody CustomerEntity customerEntity) {
         return customerService.updateCustomer(id_customer, customerEntity);
     }
@@ -51,5 +51,14 @@ public class CustomerController {
     public CustomerEntity createCustomer(@RequestBody CustomerEntity customerEntity) {
         return customerService.createCustomer(customerEntity);
     }
+
+    /*
+    DELETE CUSTOMER
+    */
+    @DeleteMapping("/{id_customer}")
+    public void deleteCustomer(@PathVariable long id_customer) {
+        customerService.deleteCustomer(id_customer);
+    }
+
 
 }

@@ -58,5 +58,11 @@ public class CustomerService {
         return ResponseEntity.ok(updateCustomer);
     }
 
+    /*
+     DELETE OPPORTUNITY BY ID METHOD
+    */
+    public void deleteCustomer(long id_customer) {
+        customerRepository.deleteById(id_customer);
+    }
 
 }

@@ -1,6 +1,5 @@
 package com.example.AssesmentCRM.exception;
 
-import com.example.AssesmentCRM.models.UserEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +12,5 @@ public class ResourceNotFoundException extends RuntimeException {
         super(message);
     }
 
-    @GetMapping("{id_user}")
-    public ResponseEntity<UserEntity> getUserById(@PathVariable long id_user) {
 
-        return null;
-    }
 }

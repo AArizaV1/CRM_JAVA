@@ -1,19 +1,16 @@
 package com.example.AssesmentCRM;
 
-import com.example.AssesmentCRM.models.OpportunityEntity;
-import com.example.AssesmentCRM.models.UserEntity;
 import com.example.AssesmentCRM.repositories.OpportunityRepository;
-import com.example.AssesmentCRM.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AssesmentCrmApplication implements CommandLineRunner {
+public class CRM_BASIC implements CommandLineRunner {
 
     public static void main(String[] args) {
-        SpringApplication.run(AssesmentCrmApplication.class, args);
+        SpringApplication.run(CRM_BASIC.class, args);
     }
 
     @Autowired

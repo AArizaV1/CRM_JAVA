@@ -1,7 +1,7 @@
 package com.example.AssesmentCRM.controllers;
 
 import com.example.AssesmentCRM.models.ContactEntity;
-import com.example.AssesmentCRM.models.UserEntity;
+import com.example.AssesmentCRM.models.ContactEntityDTO;
 import com.example.AssesmentCRM.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,20 +28,48 @@ public class ContactController {
         return contactService.getAllContacts();
     }
 
+
     /*
-    GET CONTACT BY ID
+    GET CONTACT BY ID METHOD
     */
-    @GetMapping("{id_contact}")
-    public ResponseEntity<ContactEntity> getContactById(@PathVariable long id_contact) {
+    @GetMapping("/id/{id_contact}")
+    public ContactEntityDTO getContactById(@PathVariable long id_contact) {
         return contactService.getContactById(id_contact);
     }
 
     /*
-    CREATE CONTACT METHOD
+    GET CONTACT BY ID OPPORTUNITY
     */
-    @PostMapping
-    public ContactEntity createContact(@RequestBody ContactEntity contactEntity) {
-        return contactService.createContact(contactEntity);
+    @GetMapping("/{id_opportunity}")
+    public List<ContactEntity> getContactByOpportunities(@PathVariable long id_opportunity) {
+        return contactService.getContactsByOpportunities(id_opportunity);
+    }
+
+
+    /*
+    CREATE CONTACT METHOD BY ID OPPORTUNITY
+    */
+    @PostMapping("/{id_opportunity}")
+    public ContactEntity createContact(@PathVariable long id_opportunity, @RequestBody ContactEntity contactEntity) {
+        return contactService.createContact(id_opportunity, contactEntity);
+    }
+
+    /*
+    UPDATE OPPORTUNITY BY ID METHOD
+    */
+    @PutMapping("/{id_contact}")
+    public ResponseEntity<ContactEntityDTO> updateContact(@PathVariable long id_contact, @RequestBody ContactEntityDTO contactEntityDTO) {
+        return contactService.updateContact(id_contact, contactEntityDTO);
+    }
+
+
+    /*
+    DELETE OPPORTUNITY BY ID METHOD
+    */
+
+    @DeleteMapping("/{id_contact}")
+    public void deleteContact(@PathVariable long id_contact) {
+        contactService.deleteContact(id_contact);
     }
 
 }

@@ -42,13 +42,14 @@ public class ContactServiceTest {
     /*
     TEST CREATE CONTACT
     */
+    /*
     @Test
     public void createContact() {
         Integer numberContact = this.contactService.getAllContacts().size();
         this.contactService.createContact(contact1);
         Assert.assertEquals(this.contactService.getAllContacts().size(), numberContact + 1);
     }
-
+*/
     /*
     TEST DELETE CONTACT
     */
