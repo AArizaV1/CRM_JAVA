@@ -116,7 +116,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
                                 ))
                             }
                             <StyledTableCell colSpan="4" align="center" >
-                                <Button variant="contained" color="info"  size="large" onClick={()=>createContact(`/createContact/${idOpportunity}`)} >CREATE CONTACT</Button>
+                                <Button variant="contained" color="info"  size="large" onClick={()=>createContact(`/createContact/${idOpportunity}`)} > CREATE CONTACT</Button>
                             </StyledTableCell>    
                         </TableBody> 
                     </Table>
